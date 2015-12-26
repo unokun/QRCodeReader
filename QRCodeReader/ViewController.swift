@@ -9,16 +9,17 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
     var captureSession:AVCaptureSession?
     var captureVideoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrcodeView: UIView?
 
     
-    @IBOutlet weak var scanResult: UILabel!
-    
     @IBAction func doScan(sender: UIButton) {
+        self.configureVideoCapture()
+        self.addVideoPreviewLayer()
+        self.initializeQRView()
     }
     
     override func viewDidLoad() {
