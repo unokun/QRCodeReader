@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="QRCodeReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6y-Ev-WXq">
+                                <rect key="frame" x="277" y="285" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="bPB-Oc-FHl"/>
+                                </constraints>
+                                <state key="normal" title="scan"/>
+                                <connections>
+                                    <action selector="doScan:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zJ5-yn-RMB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnP-ZP-uhK">
+                                <rect key="frame" x="230" y="333" width="57" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57" id="wyA-oQ-J7y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJr-ZU-tg7">
+                                <rect key="frame" x="305" y="333" width="209" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="209" id="HUm-tl-FRU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TJr-ZU-tg7" firstAttribute="top" secondItem="b6y-Ev-WXq" secondAttribute="bottom" constant="18" id="326-az-RDr"/>
+                            <constraint firstItem="TJr-ZU-tg7" firstAttribute="top" secondItem="tnP-ZP-uhK" secondAttribute="top" id="4t0-tS-zhH"/>
+                            <constraint firstItem="b6y-Ev-WXq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5YX-tg-tpN"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tnP-ZP-uhK" secondAttribute="bottom" constant="245" id="9nl-tJ-viW"/>
+                            <constraint firstItem="b6y-Ev-WXq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Bve-BQ-c8q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TJr-ZU-tg7" secondAttribute="trailing" constant="66" id="Cbb-Oy-Ssi"/>
+                            <constraint firstItem="TJr-ZU-tg7" firstAttribute="leading" secondItem="tnP-ZP-uhK" secondAttribute="trailing" constant="18" id="XEr-8p-HdT"/>
+                            <constraint firstItem="TJr-ZU-tg7" firstAttribute="centerY" secondItem="tnP-ZP-uhK" secondAttribute="centerY" id="bwU-ft-G2i"/>
+                            <constraint firstItem="b6y-Ev-WXq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="265" id="p07-R5-IjR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scanResult" destination="TJr-ZU-tg7" id="H5f-nE-WRP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="280" y="315"/>
+        </scene>
+    </scenes>
+</document>
