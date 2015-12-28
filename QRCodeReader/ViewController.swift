@@ -15,25 +15,24 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureVideoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrcodeView: UIView?
 
-    
-    @IBAction func doScan(sender: UIButton) {
+    @IBOutlet weak var label: UILabel!
+    @IBAction func doScan(sender: UIBarButtonItem) {
         self.captureSession = self.configureVideoCapture()
         if let session = self.captureSession {
             
             self.captureVideoPreviewLayer = self.createVideoPreviewLayer(session)
             if let preview = captureVideoPreviewLayer {
                 self.view.layer.addSublayer(preview)
-
+                
                 session.startRunning()
-
+                
                 let view = self.createQRView()
                 self.view.addSubview(view)
                 self.view.bringSubviewToFront(view)
                 self.qrcodeView = view
-
+                
             }
         }
-
     }
     
     override func viewDidLoad() {
@@ -94,7 +93,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         return view
     }
     //
-    // delegateメソッド
+    // delegate method
     //
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
         if metadataObjects == nil || metadataObjects.count == 0 {
@@ -114,9 +113,13 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             let barCode = captureVideoPreviewLayer!.transformedMetadataObjectForMetadataObject(metadata) as! AVMetadataMachineReadableCodeObject
             qrcodeView!.frame = barCode.bounds;
             if metadata.stringValue != nil {
+                qrcodeView!.frame = CGRectZero
                 let result = metadata.stringValue
                 print(result)
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.label.text = result
+
+                self.captureVideoPreviewLayer!.removeFromSuperlayer()
+                self.captureSession!.stopRunning()
             }
         }
     }
